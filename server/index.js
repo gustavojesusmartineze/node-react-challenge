@@ -7,8 +7,12 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const apiRoutes = require('./routes/api');
+
 app.use(cors());
 app.use(express.json());
+
+app.use('/api', apiRoutes);
 
 app.get('/', (req, res) => {
     res.send('Icon Generator API is running');
